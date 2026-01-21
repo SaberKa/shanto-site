@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout>
@@ -25,10 +26,10 @@ import Layout from '../layouts/Layout.astro';
           et toute la richesse de la cuisine méditerranéenne.
         </p>
         <div class="flex flex-wrap gap-4">
-          <a href="/restaurant" class="btn-primary text-lg">
+          <a href={`${base}/restaurant`} class="btn-primary text-lg">
             Voir le menu
           </a>
-          <a href="/traiteur" class="btn-secondary border-white text-white hover:bg-white hover:text-espresso text-lg">
+          <a href={`${base}/traiteur`} class="btn-secondary border-white text-white hover:bg-white hover:text-espresso text-lg">
             Service traiteur
           </a>
         </div>
@@ -131,7 +132,7 @@ import Layout from '../layouts/Layout.astro';
               Livraison disponible
             </li>
           </ul>
-          <a href="/restaurant" class="btn-primary inline-flex items-center gap-2">
+          <a href={`${base}/restaurant`} class="btn-primary inline-flex items-center gap-2">
             Découvrir le menu
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -167,7 +168,7 @@ import Layout from '../layouts/Layout.astro';
               Devis gratuit sous 24h
             </li>
           </ul>
-          <a href="/traiteur" class="inline-flex items-center gap-2 bg-ocre-600 hover:bg-ocre-700 text-white font-medium py-3 px-6 rounded-lg transition-colors">
+          <a href={`${base}/traiteur`} class="inline-flex items-center gap-2 bg-ocre-600 hover:bg-ocre-700 text-white font-medium py-3 px-6 rounded-lg transition-colors">
             Demander un devis
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />

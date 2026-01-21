@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
 
 const menuCategories = [
   {
@@ -136,7 +137,7 @@ const menuCategories = [
           </svg>
           Réserver une table
         </a>
-        <a href="/contact" class="inline-flex items-center gap-2 border-2 border-white text-white hover:bg-white hover:text-terracotta-600 font-medium py-3 px-6 rounded-lg transition-colors">
+        <a href={`${base}/contact`} class="inline-flex items-center gap-2 border-2 border-white text-white hover:bg-white hover:text-terracotta-600 font-medium py-3 px-6 rounded-lg transition-colors">
           Nous trouver
         </a>
       </div>

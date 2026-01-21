@@ -1,9 +1,10 @@
 ---
+const base = import.meta.env.BASE_URL;
 const navItems = [
-  { name: 'Accueil', href: '/' },
-  { name: 'Restaurant', href: '/restaurant' },
-  { name: 'Traiteur', href: '/traiteur' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'Accueil', href: base },
+  { name: 'Restaurant', href: `${base}/restaurant` },
+  { name: 'Traiteur', href: `${base}/traiteur` },
+  { name: 'Contact', href: `${base}/contact` },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -13,7 +14,7 @@ const currentPath = Astro.url.pathname;
   <nav class="max-w-6xl mx-auto px-4 py-4">
     <div class="flex items-center justify-between">
       <!-- Logo -->
-      <a href="/" class="flex items-center gap-3">
+      <a href={base} class="flex items-center gap-3">
         <div class="w-12 h-12 bg-terracotta-600 rounded-full flex items-center justify-center">
           <span class="text-white font-display text-xl font-bold">S</span>
         </div>
