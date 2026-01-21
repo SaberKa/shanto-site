@@ -1,0 +1,211 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const formules = [
+  {
+    name: 'Formule Découverte',
+    description: 'Idéale pour les petits événements',
+    price: 'À partir de 18€/pers.',
+    features: [
+      '4 mezzés froids au choix',
+      '2 mezzés chauds',
+      'Pain libanais',
+      'Livraison incluse (min. 10 pers.)',
+    ],
+  },
+  {
+    name: 'Formule Prestige',
+    description: 'Notre formule la plus populaire',
+    price: 'À partir de 28€/pers.',
+    popular: true,
+    features: [
+      '6 mezzés froids au choix',
+      '4 mezzés chauds',
+      'Assortiment de grillades',
+      'Desserts orientaux',
+      'Pain libanais',
+      'Service et présentation soignée',
+    ],
+  },
+  {
+    name: 'Formule Sur Mesure',
+    description: 'Personnalisez votre événement',
+    price: 'Sur devis',
+    features: [
+      'Menu entièrement personnalisable',
+      'Conseils et accompagnement',
+      'Service sur place disponible',
+      'Décoration optionnelle',
+      'Adaptée à tous les budgets',
+    ],
+  },
+];
+
+const occasions = [
+  { name: 'Mariages', icon: '💍' },
+  { name: 'Anniversaires', icon: '🎂' },
+  { name: 'Séminaires', icon: '🏢' },
+  { name: 'Baptêmes', icon: '👶' },
+  { name: 'Fêtes de famille', icon: '👨‍👩‍👧‍👦' },
+  { name: 'Cocktails', icon: '🥂' },
+];
+---
+
+<Layout title="Traiteur - Shanto" description="Service traiteur arméno-libanais pour vos événements. Mariages, anniversaires, séminaires. Devis gratuit sous 24h.">
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-ocre-500 to-ocre-700 py-20">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <span class="inline-block px-4 py-2 bg-white/10 text-white rounded-full text-sm font-medium mb-4">
+        Service Traiteur
+      </span>
+      <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-4">
+        Vos événements, nos saveurs
+      </h1>
+      <p class="text-cream/90 text-lg max-w-2xl mx-auto mb-8">
+        Confiez-nous la réussite culinaire de vos moments importants.
+        Plus de 30 ans d'expérience au service de vos papilles.
+      </p>
+      <a href="#contact-form" class="inline-flex items-center gap-2 bg-white text-ocre-600 hover:bg-cream font-medium py-3 px-6 rounded-lg transition-colors">
+        Demander un devis gratuit
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Occasions -->
+  <section class="py-12 bg-cream">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex flex-wrap justify-center gap-4">
+        {occasions.map((occasion) => (
+          <div class="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm">
+            <span class="text-xl">{occasion.icon}</span>
+            <span class="text-sm font-medium text-espresso">{occasion.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Formules -->
+  <section class="py-16 bg-warm-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <span class="text-ocre-600 font-medium uppercase tracking-wider text-sm">Nos formules</span>
+        <h2 class="section-title mt-2">Choisissez votre formule</h2>
+        <p class="text-olive-600 max-w-2xl mx-auto">
+          Des formules adaptées à tous les événements et tous les budgets.
+          Chaque plat est préparé le jour même avec des produits frais.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {formules.map((formule) => (
+          <div class={`card p-6 relative ${formule.popular ? 'border-2 border-ocre-500 ring-4 ring-ocre-100' : ''}`}>
+            {formule.popular && (
+              <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+                <span class="bg-ocre-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                  Le plus populaire
+                </span>
+              </div>
+            )}
+            <div class="text-center mb-6">
+              <h3 class="font-display text-xl font-bold text-espresso mb-2">{formule.name}</h3>
+              <p class="text-sm text-olive-600 mb-4">{formule.description}</p>
+              <p class="font-display text-2xl font-bold text-ocre-600">{formule.price}</p>
+            </div>
+            <ul class="space-y-3">
+              {formule.features.map((feature) => (
+                <li class="flex items-start gap-2 text-sm">
+                  <svg class="w-5 h-5 text-ocre-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                  <span class="text-espresso">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Avantages -->
+  <section class="py-16 bg-espresso text-cream">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="w-16 h-16 mx-auto mb-4 bg-ocre-500/20 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8 text-ocre-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="font-display font-bold mb-2">Devis sous 24h</h3>
+          <p class="text-sm text-cream/70">Réponse rapide et personnalisée</p>
+        </div>
+        <div>
+          <div class="w-16 h-16 mx-auto mb-4 bg-ocre-500/20 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8 text-ocre-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+            </svg>
+          </div>
+          <h3 class="font-display font-bold mb-2">Produits frais</h3>
+          <p class="text-sm text-cream/70">Préparés le jour même</p>
+        </div>
+        <div>
+          <div class="w-16 h-16 mx-auto mb-4 bg-ocre-500/20 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8 text-ocre-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <h3 class="font-display font-bold mb-2">Livraison</h3>
+          <p class="text-sm text-cream/70">Île-de-France et alentours</p>
+        </div>
+        <div>
+          <div class="w-16 h-16 mx-auto mb-4 bg-ocre-500/20 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8 text-ocre-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+            </svg>
+          </div>
+          <h3 class="font-display font-bold mb-2">30 ans d'expérience</h3>
+          <p class="text-sm text-cream/70">Des milliers de clients satisfaits</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section id="contact-form" class="py-16 bg-warm-white">
+    <div class="max-w-2xl mx-auto px-4">
+      <div class="text-center mb-8">
+        <span class="text-ocre-600 font-medium uppercase tracking-wider text-sm">Contact</span>
+        <h2 class="section-title mt-2">Demandez votre devis</h2>
+        <p class="text-olive-600">
+          Appelez-nous ou envoyez-nous un message. Nous vous répondons sous 24h.
+        </p>
+      </div>
+
+      <div class="card p-8">
+        <div class="text-center mb-8">
+          <a href="tel:0950195161" class="inline-flex items-center gap-3 text-2xl font-display font-bold text-terracotta-600 hover:text-terracotta-700 transition-colors">
+            <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            09 50 19 51 61
+          </a>
+          <p class="text-sm text-olive-600 mt-2">Du mardi au dimanche, 10h-22h</p>
+        </div>
+
+        <div class="border-t border-terracotta-100 pt-8">
+          <p class="text-center text-olive-600 mb-4">Ou passez directement au restaurant :</p>
+          <p class="text-center font-medium text-espresso">
+            117 rue Jean Jaurès<br />
+            94700 Maisons-Alfort
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
